@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - E-commerce Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+<header>
+<div class="logo"><img src="../Image/logo 2.png" width="162px"></div>
+<input type="checkbox" id="hamburger-toggle" class="responsive" hidden>
+    <nav>
+        <label for="hamburger-toggle" class="close-btn">✖</label>
+        <a href="index.html"   style="color: #2e3cb8; text-decoration: underline;">Home</a>
+        <a href="product.html">Product</a>
+        <a href="contact.html">Contact</a>
+        <a href="about.html">About</a>
+    </nav>
+    
+ <div class="header-right">
+            <div class="search">
+    <input type="text" id="searchInput" placeholder="Search here" onkeyup="searchProducts()">
+    <button style="background: none; color: black;"><i class="fa-solid fa-magnifying-glass"></i></button>
+</div>
+            <div class="icons">
+                <div class="cart-icon-wrapper" onclick="openCart()">
+                    <a href="javascript:void(0);"><i class="fas fa-shopping-cart"></i></a>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </div>
+                <a href="#user"><i class="fas fa-user"></i></a>
+            </div>
+        </div>
+    
+    <label for="hamburger-toggle" class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+</label>
+</header>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h2>Shopping Cart</h2>
+                <span class="close-cart" onclick="closeCart()">&times;</span>
+            </div>
+            <div id="cartItemsContainer"></div>
+            <div class="cart-summary" id="cartSummary"></div>
+            <button class="checkout-btn" onclick="checkout()">Checkout</button>
+        </div>
+    </div>
+
+
+<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <!-- Slide 1 -->
+    <div class="carousel-item active" >
+      <div class="hero-slide d-flex align-items-center"  style="padding: 0 130px;">
+
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-6">
+              <h1>Computer up <br> to - 15% off</h1>
+              <p>the biggest risk is a missed opportunity</p>
+              <button class="btn btn-primary">View Now</button>
+            </div>
+            <div class="col-md-6 text-center">
+              <img src="../Image/pngwing.com (11).png" alt="Headphones" style="max-width: 100%; max-height: 350px;">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="carousel-item">
+      <div class="hero-slide d-flex align-items-center">
+
+        <div class="container">
+          <div class="row align-items-center">
+
+            <div class="col-md-6">
+              <h1>Smartphone Sale <br> up to - 20%</h1>
+              <p>best quality with best price</p>
+              <button class="btn btn-warning">View now</button>
+            </div>
+            <div class="col-md-6 text-center">
+              <img src="../Image/pngwing.com (37).png" class="img-fluid product-img">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="carousel-item">
+      <div class="hero-slide d-flex align-items-center">
+
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-6">
+              <h1>Headphone Discount <br> up to - 30%</h1>
+              <p>experience best sound quality</p>
+              <button class="btn btn-success">View now</button>
+            </div>
+
+            <div class="col-md-6 text-center">
+              <img src="../Image/pngwing.com (36).png" class="img-fluid product-img">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+
+</div>
+
+
+    <h4 id="h4" style="text-align: center; padding: 10px;">Some product</h4>
+<div class="slider">
+  <div class="slidetrack">
+    <div class="slide2"><img src="../Image/Advertising  (1).jpg"></div>
+    <div class="slide2"><img src="../Image/Advertising  (2).jpg"></div>
+    <div class="slide2"><img src="../Image/Advertising  (3).jpg"></div>
+    <div class="slide2"><img src="../Image/Advertising  (4).jpg"></div>
+    <!-- duplicate for smooth loop -->
+    <div class="slide2"><img src="../Image/Advertising  (5).jpg"></div>
+    <div class="slide2"><img src="../Image/Advertising  (6).jpg"></div>
+    <div class="slide2"><img src="../Image/Advertising  (7).jpg"></div>
+    <div class="slide2"><img src="../Image/Advertising  (8).jpg"></div>
+    <div class="slide2"><img src="../Image/Advertising  (9).jpg"></div>
+  </div>
+</div>
+
+
+        <!-- ទំនិញពេញនិយមនៅហាងបង -->
+    <section class="trending">
+        <div class="trending-header">
+            <h2>Trending Products</h2>
+            <div class="trending-tabs">
+                <a href="#" class="active"><i class="fas fa-headphones"></i> Headphones</a>
+                <a href="#"><i class="fas fa-watch"></i> Watch</a>
+                <a href="#"><i class="fas fa-laptop"></i> Laptop</a>
+            </div>
+        </div>
+        <div class="trending-grid">
+            <div class="product-card">
+                <img src="../Image/pngwing.com (15).png" alt="Drou watch ultra">
+                <h4>Small Speaker</h4>
+                <div class="price">300$</div>
+                <div class="original-price">99</div>
+            </div>
+            <div class="product-card">
+                <img src="../Image/pngwing.com (16).png" alt="DroiPods max">
+                <h4>bluetooth Headphone</h4>
+                <div class="price">90$</div>
+                <div class="original-price">100$</div>
+            </div>
+            <div class="product-card">
+                <img src="../Image/pngwing.com (26).png" alt="iPhone 14 pro max">
+                <h4>iPhone 14 pro max</h4>
+                <div class="price">2$</div>
+                <div class="original-price">700$</div>
+            </div>
+            <div class="product-card">
+                <img src="../Image/pngwing.com (25).png" alt="iPhone 15 white color">
+                <h4>iPhone 15 white color</h4>
+                <div class="price">800$</div>
+                <div class="original-price">900$</div>
+            </div>
+            <div class="product-card">
+                <img src="../Image/pngwing.com (2).png" alt="DroiPods Pro white">
+                <h4>DroiPods Pro white</h4>
+                <div class="price">200$</div>
+                <div class="original-price">300$</div>
+            </div>
+            <div class="product-card">
+                <img src="../Image/pngwing.com (6).png" alt="DroiGube Charger">
+                <h4>DroiGube Charger</h4>
+                <div class="price">20$</div>
+                <div class="original-price">25$</div>
+            </div>
+            <div class="product-card">
+                <img src="../Image/pngwing.com (9).png" alt="Homepod mini 2022">
+                <h4>Homepod mini 2022</h4>
+                <div class="price">200$</div>
+                <div class="original-price">190$</div>
+            </div>
+            <div class="product-card">
+                <img src="../Image/pngwing.com (5).png" alt="Home entertainment">
+                <h4>Home entertainment</h4>
+                <div class="price">199$</div>
+            </div>
+            <div class="product-card">
+                <img src="../Image/pngwing.com (40).png" alt="Homepod mini 2022">
+                <h4>Smart watch</h4>
+                <div class="price">200$</div>
+                <div class="original-price">190$</div>
+            </div>
+            <div class="product-card">
+                <img src="../Image/pngwing.com (39).png" alt="Homepod mini 2022">
+                <h4>Max boo2</h4>
+                <div class="price">200$</div>
+                <div class="original-price">190$</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Packages -->
+    <section class="packages">
+        <h2>All package</h2>
+        <div class="package">
+             <div class="product-card">
+                <img src="../Image/pngwing.com (43).png" alt="Homepod mini 2022">
+                <h4>Flash 32G (USB)</h4>
+                <div class="price">200$</div>
+                <div class="original-price">190$</div>
+            </div>
+             <div class="product-card">
+                <img src="../Image/pngwing.com (9).png" alt="Homepod mini 2022">
+                <h4>Homepod mini 2022</h4>
+                <div class="price">200$</div>
+                <div class="original-price">190$</div>
+            </div>
+            <div class="product-card">
+                <img src="../Image/item (14).png" alt="System Unit">
+                <h4>System Unit</h4>
+                <div class="price">288$</div>
+
+            </div>
+            <div class="product-card">
+                <img src="../Image/item (18).png" alt="Bag gaming">
+                <h4>Bag gaming</h4>
+                <div class="price">10$</div>
+
+            </div>
+            <div class="product-card">
+                <img src="../Image/pngwing.com (8).png" alt="Smart watch">
+                <h4>Smart watch</h4>
+                <div class="price">12$</div>
+            </div>
+            <div class="product-card">
+                <img src="../Image/item (21).png" alt="LCD projector">
+                <h4>LCD projector</h4>
+                <div class="price">116$</div>
+            </div>
+            <div class="product-card">
+                <img src="../Image/item (24).png" alt="LCD projector">
+                <h4>Headphone</h4>
+                <div class="price">16$</div>
+            </div>          
+            <div class="product-card">
+                <img src="../Image/item (29).png" alt="LCD projector">
+                <h4>Smart watch</h4>
+                <div class="price">16$</div>
+            </div>
+            <div class="product-card">
+                <img src="../Image/pngwing.com (41).png" alt="LCD projector">
+                <h4>Case iphone 7</h4>
+                <div class="price">16$</div>
+            </div>
+            <div class="product-card">
+                <img src="../Image/pngwing.com (42).png" alt="LCD projector">
+                <h4>Adapter</h4>
+                <div class="price">16$</div>
+            </div>
+            
+        </div>
+        <div class="show-more">
+            <button class="btn-show-more">Show more</button>
+        </div>
+    </section>
+
+    <!-- our product -->
+     <section class="services">
+    <h1>OUR PRODUCTS</h1>
+
+    <div class="card-container">
+
+        <div class="card">
+            <img src="../Image/new product (2).jpg">
+            <h3>Laptop</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem temporibus iste, iusto culpa, mollitia...</p>
+            <a href="product.html">start now →</a>
+        </div>
+
+        <div class="card">
+            <img src="../Image/new product (5).jpg">
+            <h3>Headphone</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem temporibus iste, iusto culpa, mollitia...</p>
+            <a href="product.html">start now →</a>
+        </div>
+
+        <div class="card">
+            <img src="../Image/new product (13).jpg">
+            <h3>Accessories</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem temporibus iste, iusto culpa, mollitia...</p>
+            <a href="product.html">start now →</a>
+        </div>
+
+    </div>
+</section>
+    <!-- Banners -->
+     <section class="cta">
+
+    <div class="box blue">
+        <div class="content">
+            <h2>Are You Looking <br> For Tech Products?</h2>
+            <p>We provide the best quality computers, headphones, and accessories for your needs.</p>
+            <a href="product.html"><button>Get Started →</button></a>
+        </div>
+
+        <div class="icon">
+            <i class="fa-solid fa-laptop"></i>
+        </div>
+    </div>
+
+    <div class="box pink">
+        <div class="content">
+            <h2>Do You Want to <br> Sell Your Device?</h2>
+            <p>Sell your used devices easily and get the best price with our trusted service. </p>
+            <a href="contact.html"><button class="dark">Get Started →</button></a>
+        </div>
+        <div class="icon">
+            <i class="fa-solid fa-house"></i>
+        </div>
+    </div>
+</section>
+
+<center>
+    <iframe src="https://www.google.com/maps?q=National+University+of+Chea+Sim+Kamchaymear+Cambodia&output=embed"
+  style="border:0;" 
+  allowfullscreen="" 
+  loading="lazy">
+</iframe>
+</center>
+    <!-- Footer -->
+    <footer>
+        <div class="footer">
+            <div class="footer-column">
+                <img src="../Image/logo 2.png" width="182">
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/share/17BVu9LXVN/"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://t.me/Nareach088"><i class="fab fa-telegram"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4><i class="fas fa-store"></i> SHOP</h4>
+                <ul>
+                    <li><a href="#"><i class="fas fa-angle-right"></i> about us</a></li>
+                    <li><a href="#"><i class="fas fa-angle-right"></i> collection</a></li>
+
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4><i class="fas fa-link"></i> LINKS</h4>
+                <ul>
+                    <li><a href="#"><i class="fas fa-angle-right"></i> Feedback</a></li>
+                    <li><a href="#"><i class="fas fa-angle-right"></i> customer</a></li>
+                    <li><a href="#"><i class="fas fa-angle-right"></i> Support</a></li>
+                    <li><a href="#"><i class="fas fa-angle-right"></i> Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4><i class="fas fa-phone"></i> CONTACT</h4>
+                <ul>
+                    <li><a href="#"><i class="fas fa-phone"></i> +855 112233445</a></li>
+                    <li><a href="#"><i class="fas fa-envelope"></i> reach3021@gmail.com</a></li>
+                    <li><a href="#"><i class="fas fa-map-marker-alt"></i> Cambodia, prey veng</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </footer>
+    <script src="../JS/script.js"></script>
+</body>
+</html>

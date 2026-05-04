@@ -1,0 +1,82 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: khmer;
+
+        }
+        table{
+            border: 1px solid black;
+            text-align: center;
+            background-color: aqua;
+            width: 500px;
+            height: 300px;
+            box-shadow: 1 0 5 0 black;
+            border-radius: 20px;
+        }
+        tr{
+            border: 1px solid black;
+            align-content: center;
+        }
+        input{
+            height: 40px;
+            border: none;
+            border-radius: 10px 0 0 10px;
+            height: 40px;
+            width: 200px;
+            outline: none;
+        }
+        button{
+            background-color: greenyellow;
+            color: rgb(103, 103, 103);
+            height: 40px;
+            border: none;
+            border-radius: 0 10px 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>
+                <h3>ទស្សទាយលេខទូរសព្ទ័ 4ខ្ទង់</h3>
+                <p>សូមមេត្តាបញ្ចូលលេខទូរសព្ទ័ 4ខ្ទង់ខាងក្រោម</p>
+                <input type="number" id="numberInput" placeholder="Enter number"> <button onclick="checkPersonality()">បង្ហាញលទ្ធផលខាងក្រោម</button>
+                <div>លទ្ធផល : </div><div id="result"></div>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
+
+<script>
+function checkPersonality() {
+    let input = document.getElementById("numberInput").value;
+
+    if (input === "") {
+        document.getElementById("result").innerText = "Please enter a number!";
+        return;
+    }
+
+    let lastDigit = input % 10;
+
+    let personalities = {
+        0: "ជាប្រភេទមនុស្សស្រឡាញ់សេរីភាព (free Spirit)",
+        1: "ជាប្រភេទអ្នកដឹកនាំ(Leader)",
+        2: "ជាប្រភេទមនុស្សស្រឡាញ់សង្គម(Socializer)",
+        3: "ជាប្រភេទមនុស្សស្រឡាញ់គេម្នាក់ឯង(single)",
+        4: "ជាប្រភេទអ្នកអត់លិឌអាជីប(alone)",
+        5: "ជាប្រភេទមនុស្សស្រឡាញ់គេតាពាស (Unfaithful)",
+        6: "អ្នកស្រឡាញ់លិល្បៈ(Artist)",
+        7: "ជាប្រភេទអ្នកប្រឹងប្រែង (Hard Worker)",
+        8: "អ្នកមានវ័ន័យខ្ពស់(Disciplined)",
+        9: "អ្នកស្រឡាញ់ចំណេះដឹង (knowledge Seeker)"
+    };
+
+    document.getElementById("result").innerText =
+        "Result: " + personalities[lastDigit];
+}
+</script>

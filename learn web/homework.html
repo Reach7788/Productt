@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>To Do List</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:blanchedalmond;
+    font-family:Arial;
+}
+
+.container{
+    width:350px;
+    background: url('https://tse1.mm.bing.net/th/id/OIP.hZI1XqtWEe0A4QhxP0A4rQAAAA?pid=ImgDet&w=165&h=92&c=7&dpr=1.1&o=7&rm=3');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color:rgb(255, 255, 255);
+    padding:20px;
+    border-radius:15px;
+    border:2px solid blue;
+    text-align:center;
+}
+
+.input-box{
+    margin:15px 0;
+}
+
+input{
+    padding:8px;
+    width:65%;
+    border:none;
+    border-radius:5px;
+}
+
+button{
+    padding:8px 12px;
+    border:none;
+    background:blue;
+    color:white;
+    border-radius:5px;
+}
+
+ul{
+    padding:0;
+}
+
+li{
+    list-style:none;
+    margin:10px 0;
+    padding:10px;
+    border:1px solid #aaa;
+    border-radius:5px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.completed{
+    text-decoration: line-through;
+    opacity:0.6;
+}
+
+.actions button{
+    background:none;
+    color:red;
+    margin-left:5px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>To Do List</h1>
+    <div class="input-box">
+        <input type="text" id="taskInput" placeholder="Enter task...">
+        <button onclick="addTask()">Add</button>
+    </div>
+    <h3>Task List</h3>
+    <ul id="taskList"></ul>
+    <p>
+        Completed: <span id="completed">0</span> |
+        Uncompleted: <span id="uncompleted">0</span>
+    </p>
+</div>
+
+<script>
+function addTask(){
+    let input = document.getElementById("taskInput");
+    let text = input.value;
+    if(text === "") return;
+    let li = document.createElement("li");
+    let checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.onchange = function(){
+        li.classList.toggle("completed");
+        updateCount();
+    }
+
+
+    let span = document.createElement("span");
+    span.innerText = text;
+    let actions = document.createElement("div");
+    actions.className = "actions";
+
+    let del = document.createElement("button");
+    del.innerText = "Delete";
+    del.onclick = function(){
+        li.remove();
+        updateCount();
+    }
+    actions.appendChild(del);
+    li.appendChild(checkbox);
+    li.appendChild(span);
+    li.appendChild(actions);
+        document.getElementById("taskList").appendChild(li);
+    input.value = "";
+    updateCount();
+}
+
+function updateCount(){
+    let all = document.querySelectorAll("#taskList li");
+    let done = document.querySelectorAll(".completed");
+
+    document.getElementById("completed").innerText = done.length;
+    document.getElementById("uncompleted").innerText = all.length - done.length;
+}
+</script>
+
+</body>
+</html>

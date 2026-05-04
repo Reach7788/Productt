@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <title>document</title>
+    <style>
+        body {
+            font-family: khmer;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 8px 1px;
+            font-size: 16px;
+        }
+        #result {
+            font-size: 18px;
+            color: rgb(255, 174, 0);
+        }
+    </style>
+</head>
+<body>
+<center>
+    <h2>បញ្ចូលអាយុមកពៅមាស</h2>
+    <input type="number" id="age" placeholder="input age">
+     ឆ្នាំ <button onclick="check()">បញ្ជាក់</button><br><br>
+    <div id="result"></div>
+</center>
+</body>
+</html>
+<script>
+        function check() {
+            let age = document.getElementById("age").value;
+            let result = document.getElementById("result");
+            if (age < 18) {
+        result.innerHTML = "អ្នកនៅតូចហា";
+        result.style.color = "red";
+    } else if (age >= 18 && age <= 30) {
+        result.innerHTML = "វ័យក្មេង";
+        result.style.color = "green";
+    } else if (age > 30) {
+        result.innerHTML = "វ័យចាស់";
+        result.style.color = "blue";
+    } else {
+        result.innerHTML = "សូមបញ្ចូលអាយុឲ្យត្រឹមត្រូវ";
+        result.style.color = "black";
+    }
+}
+    </script>

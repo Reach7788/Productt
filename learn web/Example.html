@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Registration</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: rgb(48, 47, 45);
+    }
+    h2, h3 {
+      text-align: center;
+      color: #ffffff;
+    }
+    form {
+      margin: 0 auto 20px auto;
+      padding: 20px;
+      border-radius: 15px;
+      background-color: #fff;
+      max-width: 500px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    input, select {
+      width: 100.1%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 3px;
+      border: 1px solid #ccc;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px;
+      width: 100%;
+      align-items: center;
+      background-color: #ff4800;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background-color: red;
+      color: white;
+    }
+    tr:nth-child(even) {
+      background-color: #ffe5e5;
+    }
+  </style>
+</head>
+<body>
+  <h2>Student Registration Form</h2>
+  <form id="studentForm">
+    <label>ID:</label><input type="text" id="id" required>
+    <label>Name:</label><input type="text" id="name" required>
+    <label>Sex:</label>
+    <select id="sex" required>
+      <option value="">-- Select --</option>
+      <option>Male</option>
+      <option>Female</option>
+    </select>
+    <label>Date of Birth:</label>
+    <input type="date" id="dob" required>
+    <label>Place of Birth:</label>
+    <select id="pob" required>
+      <option value="">-- Select Province --</option>
+      <option>Phnom Penh</option>
+      <option>Prey Veng</option>
+      <option>Veng Srang</option>
+    </select>
+    <label>Phone Number:</label>
+    <input type="tel" id="phone" required>
+
+    <button type="submit">Register</button>
+  </form>
+  <h3>Registered Students</h3>
+  <table id="studentTable">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Sex</th>
+        <th>Date of Birth</th>
+        <th>Place of Birth</th>
+        <th>Phone</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    const students = [];
+
+    document.getElementById('studentForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const student = {
+        id: document.getElementById('id').value,
+        name: document.getElementById('name').value,
+        sex: document.getElementById('sex').value,
+        dob: document.getElementById('dob').value,
+        pob: document.getElementById('pob').value,
+        phone: document.getElementById('phone').value
+      };
+
+      students.push(student);
+      displayStudents();
+      this.reset();
+    });
+
+    function displayStudents() {
+      const tbody = document.querySelector('#studentTable tbody');
+      tbody.innerHTML = '';
+
+      students.forEach((s) => {
+        const row = `
+          <tr>
+            <td>${s.id}</td>
+            <td>${s.name}</td>
+            <td>${s.sex}</td>
+            <td>${s.dob}</td>
+            <td>${s.pob}</td>
+            <td>${s.phone}</td>
+          </tr>
+        `;
+        tbody.insertAdjacentHTML('beforeend', row);
+      });
+    }
+  </script>
+
+</body>
+</html>

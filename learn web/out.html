@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Header</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:sans-serif;
+}
+
+body{
+  background:#f4f4f4;
+}
+
+/* HEADER */
+.header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:12px 15px;
+  background:#fff;
+  position:relative;
+}
+
+/* LOGO */
+.logo{
+  font-weight:bold;
+}
+
+/* SEARCH BOX (DESKTOP) */
+.search-box{
+  flex:1;
+  margin:0 15px;
+}
+
+.search-box input{
+  width:100%;
+  padding:8px;
+  border:1px solid #ccc;
+  border-radius:6px;
+}
+
+/* ICONS */
+.icons{
+  display:flex;
+  gap:12px;
+  font-size:18px;
+  align-items:center;
+}
+
+.search-icon{
+  display:none;
+  cursor:pointer;
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:768px){
+
+  /* hide input */
+  .search-box{
+    position:absolute;
+    top:60px;
+    left:0;
+    width:100%;
+    background:#fff;
+    padding:10px;
+    display:none;
+  }
+
+  /* show icon */
+  .search-icon{
+    display:block;
+  }
+
+  /* hide desktop search */
+  .search-box.desktop{
+    display:none;
+  }
+
+  /* when click show */
+  #search-toggle:checked ~ .header .search-box{
+    display:block;
+    animation:slideDown .3s ease;
+  }
+
+}
+
+/* ANIMATION */
+@keyframes slideDown{
+  from{opacity:0; transform:translateY(-10px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+</style>
+</head>
+<body>
+
+<!-- TOGGLE -->
+<input type="checkbox" id="search-toggle" hidden>
+
+<header class="header">
+
+  <div class="logo">E-SHOP</div>
+
+  <!-- SEARCH -->
+  <div class="search-box desktop">
+    <input type="text" placeholder="Search here">
+  </div>
+
+  <!-- ICONS -->
+  <div class="icons">
+
+    <!-- MOBILE SEARCH BUTTON -->
+    <label for="search-toggle" class="search-icon">
+      <i class="fa fa-search"></i>
+    </label>
+
+    <i class="fa fa-shopping-cart"></i>
+    <i class="fa fa-user"></i>
+
+  </div>
+
+</header>
+
+<!-- MOBILE SEARCH DROPDOWN -->
+<div class="search-box">
+  <input type="text" placeholder="Search here">
+</div>
+
+<script>
+
+/* click outside = close */
+document.addEventListener("click", function(e){
+  const toggle = document.getElementById("search-toggle");
+  const searchBox = document.querySelectorAll(".search-box");
+  const icon = document.querySelector(".search-icon");
+
+  let inside = false;
+
+  searchBox.forEach(box=>{
+    if(box.contains(e.target)) inside = true;
+  });
+
+  if(!inside && !icon.contains(e.target)){
+    toggle.checked = false;
+  }
+});
+
+</script>
+
+</body>
+</html>

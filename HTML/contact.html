@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Shop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <style>
+        .contact-page {
+            padding: 40px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .contact-header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .contact-header p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .contact-info {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info h2 {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .info-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .info-item i {
+            color: #ff6b35;
+            font-size: 24px;
+            width: 30px;
+        }
+
+        .info-item div h3 {
+            font-size: 14px;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .info-item div p {
+            color: #666;
+            font-size: 13px;
+        }
+
+        .contact-form {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form h2 {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #4052d6;
+            box-shadow: 0 0 5px rgba(64, 82, 214, 0.2);
+        }
+
+        .btn-submit {
+            background: #4052d6;
+            color: white;
+            padding: 12px 40px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        .btn-submit:hover {
+            background: #2e3cb8;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f0f0f0;
+            border-radius: 50%;
+            color: #333;
+            text-decoration: none;
+            font-size: 20px;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: #ff6b35;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .contact-header h1 {
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-page {
+                padding: 25px 15px;
+            }
+
+            .contact-info,
+            .contact-form {
+                padding: 20px;
+            }
+
+            .contact-header h1 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+<div class="logo"><img src="../Image/logo 2.png" width="182px"></div>
+<input type="checkbox" id="hamburger-toggle" class="hamburger-toggle" hidden>
+<label for="hamburger-toggle" class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+</label>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="product.html">Product</a>
+        <a href="contact.html"   style="color: #2e3cb8; text-decoration: underline;">Contact</a>
+        <a href="about.html">About</a>
+    </nav>
+    <div class="header-right">
+        <div class="search">
+            <input type="text" placeholder="Search here">
+            <button style="background: none; color: black;"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+        <div class="icons">
+            <a href="#"><i class="fas fa-shopping-cart"></i></a>
+            <a href="#user"><i class="fas fa-user"></i></a>
+        </div>
+    </div>
+</header>
+
+    <!-- Contact Page -->
+    <div class="contact-page">
+        <div class="contact-header">
+            <h1><i class="fas fa-envelope"></i> Contact Us</h1>
+            <p>We'd love to hear from you. Get in touch with us today!</p>
+        </div>
+
+        <div class="contact-container">
+            <!-- Contact Info -->
+            <div class="contact-info">
+                <h2>Contact Information</h2>
+
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h3>Address</h3>
+                        <p>ព្រៃវែង<br>ស្រុកកំចាយមារ<br>ឃុំស្មោងខាងជើង</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h3>Phone</h3>
+                        <p>+855889909544<br>Mon-Fri: 7AM - 6PM</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h3>Email</h3>
+                        <p>mikita12@gmail.com<br>na21@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <h3>Business Hours</h3>
+                        <p>Monday - Friday: 9AM - 6PM<br>Saturday: 10AM - 4PM<br>Sunday: Closed</p>
+                    </div>
+                </div>
+
+                <div class="social-links">
+                    <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form">
+                <h2>Send us a Message</h2>
+
+                <form>
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject *</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+<!-- <footer>
+        <div class="footer">
+            <div class="footer-column">
+                <img src="../Image/logo 2.png" width="182">
+                <p style="font-size: 12px; color: #000000; margin-top: 10px;">instagram @nit</p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/share/17BVu9LXVN/"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://t.me/Nareach088"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-telephone"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4><i class="fas fa-store"></i> SHOP</h4>
+                <ul>
+                    <li><a href="#"><i class="fas fa-angle-right"></i> about us</a></li>
+                    <li><a href="#"><i class="fas fa-angle-right"></i> collection</a></li>
+
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4><i class="fas fa-link"></i> LINKS</h4>
+                <ul>
+                    <li><a href="#"><i class="fas fa-angle-right"></i> Feedback</a></li>
+                    <li><a href="#"><i class="fas fa-angle-right"></i> customer</a></li>
+                    <li><a href="#"><i class="fas fa-angle-right"></i> Support</a></li>
+                    <li><a href="#"><i class="fas fa-angle-right"></i> Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4><i class="fas fa-phone"></i> CONTACT</h4>
+                <ul>
+                    <li><a href="#"><i class="fas fa-phone"></i> +855 112233445</a></li>
+                    <li><a href="#"><i class="fas fa-envelope"></i> reach3021@gmail.com</a></li>
+                    <li><a href="#"><i class="fas fa-map-marker-alt"></i> Cambodia, prey veng</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- <div class="footer-bottom">
+            <p>&copy; 2026 Shop. All rights reserved.</p>
+        </div> -->
+    </footer> -->
+</body>
+</html>

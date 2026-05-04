@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Memory Card Game</title>
+<style>
+body {
+    text-align: center;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: rgb(0, 0, 0);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+h2{
+    color: white;
+}
+.game-board {
+    width: 340px;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(4, 70px);
+    grid-gap: 10px;
+}
+
+.card {
+    width: 70px;
+    height: 70px;
+    background: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    cursor: pointer;
+    border-radius: 10px;
+    border: 2px solid rgba(255,255,255,0.3);
+    transition: 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+.card.flip {
+    background: linear-gradient(135deg, #ff00e6, #ececec);
+}
+
+
+button {
+    padding: 10px 25px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px;
+    background-color: #52c8ff;
+    color: white;
+    transition: 0.1s;
+}
+
+button:hover {
+    background-color: #00ffc3;
+    transform: scale(1.05);
+}
+</style>
+</head>
+<body>
+
+<h2>Memory Card Game</h2>
+<div class="game-board" id="gameBoard"></div>
+<div>
+    <button class="reset-btn" id="resetBtn">Reset Game</button>
+</div>
+
+<script>
+const board = document.getElementById("gameBoard");
+const resetBtn = document.getElementById("resetBtn");
+
+let icons = ["🐷","🐷","🎮","🎮","❤️","❤️","📖","📖","🌟","🌟","💻","💻","🥰","🥰","🚓","🚓"];
+let firstCard = null, secondCard = null, lockBoard = false;
+
+function shuffleCards() {
+    icons.sort(() => 0.5- Math.random()); //ធ្វើប្រអប់ឲ្យច្របល់គ្នា
+}
+
+function initGame() {
+    board.innerHTML = "";
+    firstCard = null;
+    secondCard = null;
+    lockBoard = false;
+    shuffleCards(); 
+    
+    icons.forEach(icon => {   //loop icons = array emoji
+        const card = document.createElement("div"); //បង្កើត  new Element 
+        card.classList.add("card"); //css style
+        card.dataset.icon = icon; // ដាក់ icon in Card
+        card.innerHTML = "?";
+        card.addEventListener("click", flipCard); //click card to run
+        board.appendChild(card);  
+    });
+}
+
+function flipCard() {   //វាជា code ដែលធ្វើឲ្យ card បើក​ ,បង្ហាញ emoji ,ពិនិត្យ match
+
+    
+    this.innerHTML = this.dataset.icon;  //show emoji
+    this.classList.add("flip"); //add backgroud for card                                                                                                                                                                            
+    
+    if (!firstCard) {
+        firstCard = this;  
+        return;
+    }
+    
+    secondCard = this;  // កំណត់ជា card ទី២
+    lockBoard = true;
+    
+   if (firstCard.dataset.icon === secondCard.dataset.icon) {//បើកាតទាំងពីរមានសញ្ញាដូចគ្នា
+        firstCard = null;//កាតទីមួយ
+        secondCard = null;//កាតទីពីរ
+        lockBoard = false;//ចាប់ផ្តើមលេងបន្ទាប់
+    } else {
+        setTimeout(() => {
+            firstCard.innerHTML = "?";//កាតទីមួយ
+            secondCard.innerHTML = "?";//កាតទីពីរ
+            firstCard.classList.remove("flip");//ដកសញ្ញា "flip" ពីកាតទាំងពីរ
+            secondCard.classList.remove("flip");//ដកសញ្ញា "flip" ពីកាតទាំងពីរ
+            firstCard = null;//កាតទីមួយ
+            secondCard = null;//កាតទីពីរ
+            lockBoard = false;//ចុចបានម្ដងទៀត
+        }, 800);
+    }
+}
+
+resetBtn.addEventListener("click", initGame);
+initGame();
+</script>
+</body>
+</html>
