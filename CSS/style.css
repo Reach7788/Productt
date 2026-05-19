@@ -53,8 +53,6 @@ nav a {
 .close-btn {
   display: none;
 }
-
-/* OVERLAY */
 .overlay {
   position: fixed;
   top: 0;
@@ -78,7 +76,7 @@ nav a {
     position: fixed;
     top: 0;
     right: -250px; /* លាក់ទៅខាងស្តាំ */
-    width: 220px;
+    width: 200px;
     height: 100%;
     background: #ddd;
     flex-direction: column;
@@ -91,8 +89,6 @@ nav a {
     padding: 15px;
     border-bottom: 1px solid #bbb;
   }
-
-  /* បង្ហាញសញ្ញាខ្វែង (X) តែពេល Checkbox ត្រូវបាន Check */
   #hamburger-toggle:checked ~ nav .close-btn {
     display: block;
     position: absolute;
@@ -102,13 +98,9 @@ nav a {
     cursor: pointer;
     color: #333;
   }
-
-  /* រុញ Menu ចេញមកពេលចុច */
   #hamburger-toggle:checked ~ nav {
     right: 0;
   }
-
-  /* បង្ហាញ Overlay ពេលបើក Menu */
   #hamburger-toggle:checked ~ .overlay {
     opacity: 1;
     pointer-events: auto;
@@ -116,7 +108,6 @@ nav a {
 }
 /* 
 ចប់បត់បែន */
-/* header */
 header {
   background: #f6f6f6;
   padding: 16px 20px;
@@ -183,11 +174,11 @@ nav a:hover {
   cursor: pointer;
   transition: color 0.3s;
 }
-.icons a:hover {
-  color: #ff6b35;
+.icons a:hover { 
+  color: #ff0000;
 }
         /* Cart Styles */
-        .cart-badge { position: absolute; top: -8px; right: -8px; background: #ff6b35; color: white; border-radius: 50%; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold; }
+        .cart-badge { position: absolute; top: -8px; right: -8px; background: #ff3535; color: white; border-radius: 50%; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold; }
         .cart-icon-wrapper { position: relative; cursor: pointer; }
         .cart-modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); align-items: center; justify-content: center; }
         .cart-modal.show { display: flex; }
@@ -204,8 +195,8 @@ nav a:hover {
         .empty-cart { text-align: center; padding: 40px; color: #999; }
         .cart-summary { background: #f9f9f9; padding: 15px; border-radius: 5px; margin-bottom: 15px; }
         .summary-row { display: flex; justify-content: space-between; margin-bottom: 8px; }
-        .checkout-btn { width: 100%; background: #00fd04; color: white; border: none; padding: 12px; border-radius: 5px; cursor: pointer; font-weight: bold; }
-        .checkout-btn:hover { background: #40db0c; }
+        .checkout-btn { width: 100%; background: #03aa06; color: white; border: none; padding: 12px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        .checkout-btn:hover { background: #279c00; }
 
         @media (max-width: 768px) {
             .filter-section { grid-template-columns: 1fr; }
@@ -412,7 +403,7 @@ nav a:hover {
   text-align: center;
 }
 .btn-show-more {
-  background: #ff6b35;
+  background: #191919;
   color: white;
   border: none;
   padding: 12px 40px;
@@ -423,7 +414,7 @@ nav a:hover {
 }
 
 .btn-show-more:hover {
-  background: #e55a25;
+  background: #545454;
 }
 
 /* ពាណិជ្ជកម្ម */
@@ -502,7 +493,7 @@ nav a:hover {
 }
 
 .trending-tabs a:hover {
-  color: #ff6b35;
+  color: #ff0000;
 }
 .trending-grid {
   display: grid;
@@ -533,7 +524,7 @@ nav a:hover {
 }
 
 .product-card .price {
-  color: #ff6b35;
+  color: #000000;
   font-weight: bold;
   font-size: 14px;
 }

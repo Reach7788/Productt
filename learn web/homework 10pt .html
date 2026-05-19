@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Student Registration</title>
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    background: url('https://images.pexels.com/photos/28544350/pexels-photo-28544350.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.container{
+    width: 95%;
+    margin: 100px 0 0 0;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+
+}
+.box{
+    width: 510px;
+    background: linear-gradient(rgb(228, 1, 1), rgb(251, 48, 48));
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 10 0 0 3 black;
+}
+.box2{
+    width: 600px;
+    background: linear-gradient(rgb(228, 1, 1), rgb(251, 48, 48));
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 10 0 0 3 black;
+}
+
+
+h1{
+    text-align: center;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+label{
+    display: block;
+    margin-top: 10px;
+    color: white;
+}
+
+input,select{
+    width: 96%;
+    padding: 8px;
+    margin-top: 5px;
+    outline: none;
+}
+
+button{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-top: 15px;
+    padding: 8px 25px;
+    color: rgb(255, 255, 255);
+background: none;
+
+    border: 2px solid white;
+    border-radius: 7px;
+    font-weight: 200;
+}
+button:hover{
+    background-color: white;
+    color: black;
+    transition: .3s;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+table,th,td{
+    border: 1px solid rgb(255, 255, 255);
+}
+
+th,
+td{
+    padding: 10px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="box">
+        <h1>Student Registration Form</h1>
+        <form id="studentForm">
+            <label>ID:</label>    <input type="text" id="id" placeholder="your ID">
+            <label>Name:</label>  <input type="text" id="name" placeholder="your name">
+            <label>Sex:</label>
+            <select id="sex">
+                <option> Select </option>
+                <option>Male</option>
+                <option>Female</option>
+            </select>
+
+            <label>Date of Birth:</label>
+            <input type="date" id="dob">
+
+            <label>Place of Birth:</label>
+            <select id="pob">
+                <option>-- Select Province --</option>
+                <option>Banteay Meanchey</option>
+                <option>Battambang</option>
+                <option>Kampong Cham</option>
+                <option>Kampong Chhnang</option>
+                <option>Kampong Speu</option>
+                <option>Kampong Thom</option>
+                <option>Kampot</option>
+                <option>Kandal</option>
+                <option>Kep</option>
+                <option>Koh Kong</option>
+                <option>Kratie</option>
+                <option>Mondulkiri</option>
+                <option>Oddar Meanchey</option>
+                <option>Pailin</option>
+                <option>Phnom Penh</option>
+                <option>Preah Vihear</option>
+                <option>Prey Veng</option>
+                <option>Pursat</option>
+                <option>Ratanakiri</option>
+                <option>Siem Reap</option>
+                <option>Preah Sihanouk</option>
+                <option>Stung Treng</option>
+                <option>Svay Rieng</option>
+                <option>Takeo</option>
+            </select>
+            <label>Phone Number:</label><input type="text" id="phone" placeholder="your phone number">
+            <center><button type="submit">Register</button></center>
+        </form>
+    </div>
+    <div class="box2">
+
+        <h1>Registered Students</h1>
+        <table>
+            <thead style="color: white;">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Sex</th>
+                    <th>Date of Birth</th>
+                    <th>Place of Birth</th>
+                    <th>Phone</th>
+                </tr>
+            </thead>
+            <tbody id="studentList" style="color: white;"></tbody>
+        </table>
+    </div>
+</div>
+
+
+</body>
+</html>
+
+<script>
+const form = document.getElementById("studentForm");
+const studentList = document.getElementById("studentList");
+
+form.addEventListener("submit", function(event){
+
+    event.preventDefault();
+
+    let id = document.getElementById("id").value;
+    let name = document.getElementById("name").value;
+    let sex = document.getElementById("sex").value;
+    let dob = document.getElementById("dob").value;
+    let pob = document.getElementById("pob").value;
+    let phone = document.getElementById("phone").value;
+
+    let row = `
+        <tr>
+            <td>${id}</td>
+            <td>${name}</td>
+            <td>${sex}</td>
+            <td>${dob}</td>
+            <td>${pob}</td>
+            <td>${phone}</td>
+        </tr>
+    `;
+
+    studentList.innerHTML += row;
+
+    form.reset();
+
+});
+
+</script>
