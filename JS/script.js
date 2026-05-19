@@ -1,20 +1,32 @@
 // ===== MOBILE MENU =====
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
+// const hamburger = document.querySelector('.hamburger');
+// const navMenu = document.querySelector('.nav-menu');
 
-hamburger?.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
+// hamburger?.addEventListener('click', () => {
+//     hamburger.classList.toggle('active');
+//     navMenu.classList.toggle('active');
+// });
 
-navMenu?.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
+// navMenu?.querySelectorAll('a').forEach(link => {
+//     link.addEventListener('click', () => {
+//         hamburger.classList.remove('active');
+//         navMenu.classList.remove('active');
+//     });
+// });
+document.addEventListener('DOMContentLoaded', function () {
+  const checkbox = document.getElementById('hamburger-toggle');
+  const nav = document.getElementById('mainNav');
+
+  // close when link clicked (mobile)
+  nav.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      checkbox.checked = false;
     });
+  });
+
+  // extra: if JS wants to close the menu programmatically
+  window.closeMobileMenu = () => { checkbox.checked = false; };
 });
-
-
 
 
 
@@ -64,22 +76,7 @@ document.getElementById('searchInput')?.addEventListener('keypress', (e) => {
 });
 
 
-
-// slide2
-  const track = document.querySelector('.slidetrack');
-  track.addEventListener('mouseenter', () => {
-  track.style.animationPlayState = 'paused';
-});
-
-track.addEventListener('mouseleave', () => {
-  track.style.animationPlayState = 'running';
-});
-
-
-
-
-
-
+// click product
 // Show More Button
 document.addEventListener('DOMContentLoaded', function() {
     let isExpanded = false;
@@ -93,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
     showMoreBtn?.addEventListener('click', function() {
         isExpanded = !isExpanded;
         allCards.forEach((card, index) => {
-            card.style.display = (isExpanded || index < 5) ? 'block' : 'none';
+            card.style.display = (isExpanded || index < 7) ? 'block' : 'none';
         });
         showMoreBtn.textContent = isExpanded ? 'Show less' : 'Show more';
     });
@@ -162,20 +159,6 @@ function searchProduct() {
 document.getElementById('searchInput')?.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') searchProduct();
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
